@@ -1,0 +1,15 @@
+
+select * from <nazwa tabeli> = wyswietlanie tabeli z info
+insert into postac values (default, 'wiking_1', 'wiking', '1478-03-09', '107') przyklad dodania info do tabelki
+
+create table statek ('nazwa_statku' int primary key autoincrement, 'rodzaj_staku' enum, 
+'data_wodowania' date, 'max_ladownosc' int unsigned;
+ create table statek (nazwa_statku varchar(90) primary key, rodzaj_staku enum('lodka', 'galeon', 'beczka'),  data_wodowania date, max_ladownosc int unsigned);
+
+alter table postac add column funkcja varchar(50); dodanie kolumny do istniejacej tabeli przyklad
+
+update postac set funkcja='kapitan' where id_postaci='1'; modyfikacja danych
+
+alter table postac add foreign key (nazwa_statku) references statek(nazwa_statku);
+
+
