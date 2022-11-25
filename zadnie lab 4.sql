@@ -54,3 +54,30 @@ where data_wodowania >= '0001-01-01'
 and data_wodowania <= '0100-12-31';
 #albo
 where year(data_wodowania) between 0001 and 0100;
+#lab 4 zad 4
+#(a
+alter table postac modify rodzaj enum('wiking','ptak','kobieta','syrena','waz');
+insert into postac values ('23456789012',3, 'loko', 'waz', '1520-04-09', '108',default,default);
+#(b
+show create table postac;
+#opcja1 - like przenosi klucz glowny tylko struktura
+create table marynarz like postac;
+#dodanie danych
+insert into marynarz select * from postac ;
+#opcja2 - create as select struktura + dane bez klucza glownego
+create table marynarz select * from postac;
+select statek from postac;
+select * from marynarz;
+select * from postac;
+#cw 5
+create table kreatura select* from wikingowie.kreatura;
+create table zasob select* from wikingowie.zasob;
+create table ekwipunek select* from wikingowie.ekwipunek;
+select * from kreatura;
+select * from zasob where rodzaj ='jedzenie';
+select * from ekwipunek;
+# rep 5 zad 2 a
+select * from kreatura where rodzaj !='wiedzma' and udzwig >='50';
+
+#operator "rozny od"
+# != lub <>
